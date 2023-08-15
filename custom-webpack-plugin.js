@@ -214,7 +214,10 @@ class StylexPlugin {
         // the CSS bundle.
         if (
           oldClassNames.size !== newClassNames.size ||
-          [...newClassNames].some((className) => !oldClassNames.has(className))
+          [...newClassNames].some((className) => !oldClassNames.has(className)) ||
+          filename.endsWith('.stylex.ts') ||
+          filename.endsWith('.stylex.tsx') ||
+          filename.endsWith('.stylex.js')
         ) {
           compilers.forEach((compiler) => {
             cssFiles.forEach((cssFile) => {
