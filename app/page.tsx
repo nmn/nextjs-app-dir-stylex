@@ -17,14 +17,12 @@ const s = stylex.create({
       default: spacing.xxl,
       [MEDIA_MOBILE]: spacing.md,
     },
-    // background: 'red',
   },
   hero: {
     flexGrow: 1,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: 'blue',
   },
   h1: {
     fontSize: text.h1,
@@ -108,7 +106,6 @@ const s = stylex.create({
     fontFamily: $.fontMono,
   },
   grid: {
-    // background: 'green',
     display: "grid",
     gridTemplateColumns: {
       default: "repeat(4, minmax(25%, auto))",

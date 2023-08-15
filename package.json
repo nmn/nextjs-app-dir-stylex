@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@stylexjs/stylex": "^0.2.0-beta.19",
-    "@types/node": "18.16.1",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
-    "eslint": "8.39.0",
-    "eslint-config-next": "13.3.1",
-    "next": "13.3.1",
+    "@types/node": "20.5.0",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.47.0 ",
+    "eslint-config-next": "13.4.16",
+    "next": "13.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4"
+    "typescript": "5.1.6"
   },
   "devDependencies": {
     "@stylexjs/babel-plugin": "^0.2.0-beta.19",
