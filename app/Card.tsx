@@ -30,7 +30,7 @@ const styles = stylex.create({
   container: {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     flexDirection: 'column',
     borderRadius: spacing.xs,
     backgroundColor: {
@@ -43,7 +43,7 @@ const styles = stylex.create({
       default: `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0)`,
       ":hover": `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`,
     },
-    fontFamily: "system-ui, sans-serif",
+    fontFamily: $.fontSans,
     padding: spacing.sm,
     transitionProperty: "background, border",
     transitionDuration: "200ms",
@@ -73,7 +73,7 @@ const styles = stylex.create({
     margin: 0,
     opacity: 0.6,
     fontSize: text.p,
-    textWrap: "pretty",
+    textWrap: "balance",
     lineHeight: 1.5,
     maxWidth: "30ch",
   },
