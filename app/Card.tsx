@@ -1,5 +1,5 @@
 import stylex from "@stylexjs/stylex";
-import { globalTokens as $ } from "./globalTokens.stylex";
+import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 
 type Props = Readonly<{
   title: string;
@@ -16,41 +16,49 @@ export default function Card({ title, body, href }: Props) {
       rel="noopener noreferrer"
     >
       <h2 className={stylex(styles.h2)}>
-        {title} <span className={stylex(styles.span)}>-&gt;</span>
+        {title} <span className={stylex(styles.span)}>→</span>
       </h2>
       <p className={stylex(styles.p)}>{body}</p>
     </a>
   );
 }
 
+const MOBILE = "@media (max-width: 700px)";
+const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
+
 const styles = stylex.create({
   container: {
-    "--color-opacity": {
-      default: "0",
-      ":hover": "0.1",
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    borderRadius: spacing.xs,
+    backgroundColor: {
+      default: `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0)`,
+      ':hover': `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`
     },
-    borderRadius: $.borderRadius,
-    backgroundColor: `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, var(--color-opacity))`,
     borderWidth: 1,
     borderStyle: "solid",
-    borderColor: `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, var(--color-opacity))`,
-    fontFamily: "system-ui, sans-serif",
-    padding: {
-      default: "1rem 1.2rem",
-      "@media (max-width: 700px)": "1rem 2.5rem",
+    borderColor: {
+      default: `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0)`,
+      ":hover": `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`,
     },
+    fontFamily: "system-ui, sans-serif",
+    padding: spacing.sm,
     transitionProperty: "background, border",
     transitionDuration: "200ms",
     transform: {
       default: "translateX(0)",
       ":hover span": "translateX(4px)",
     },
+    textAlign: "center",
   },
   h2: {
+    fontSize: text.h4,
     fontWeight: 600,
     marginBottom: {
-      default: "0.7rem",
-      "@media (max-width: 700px)": "0.5rem",
+      default: spacing.xs,
+      [MOBILE]: spacing.xxs,
     },
   },
   span: {
@@ -58,13 +66,14 @@ const styles = stylex.create({
     transitionProperty: "transform",
     transitionDuration: {
       default: "200ms",
-      "@media (prefers-reduced-motion: reduce)": "0s",
+      [REDUCE_MOTION]: "0s",
     },
   },
   p: {
     margin: 0,
     opacity: 0.6,
-    fontSize: "0.9rem",
+    fontSize: text.p,
+    textWrap: "pretty",
     lineHeight: 1.5,
     maxWidth: "30ch",
   },

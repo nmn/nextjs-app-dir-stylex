@@ -57,6 +57,10 @@ class StylexPlugin {
     this.dev = dev;
     this.appendTo = appendTo;
     this.filename = filename;
+    if (filename.includes('stylex')) {
+      console.log('filename', filename);
+    }
+
     this.babelConfig = {
       plugins: [],
       presets: [],
@@ -170,10 +174,6 @@ class StylexPlugin {
   // Instead, `NormalModule.getCompilationHooks` is used to inject a loader
   // for JS modules. The loader than calls this function.
   async transformCode(inputCode, filename, logger) {
-    if (!filename.includes("node_modules")) {
-      console.log("checking transformCode", filename);
-    }
-
     const originalSource = this.babelConfig.babelrc
       ? await fs.readFile(filename, "utf8")
       : inputCode;

@@ -1,8 +1,6 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import stylex from "@stylexjs/stylex";
 import Card from "./Card";
-import { globalTokens as $ } from "./globalTokens.stylex";
+import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 
 const MEDIA_MOBILE = "@media (max-width: 700px)";
 const MEDIA_TABLET = "@media (min-width: 701px) and (max-width: 1120px)";
@@ -14,17 +12,47 @@ const s = stylex.create({
     alignItems: "center",
     justifyContent: "space-between",
     minHeight: "100vh",
-    padding: "5rem",
+    paddingTop: spacing.xxl,
+    paddingBottom: {
+      default: spacing.xxl,
+      [MEDIA_MOBILE]: spacing.md,
+    },
+    // background: 'red',
+  },
+  hero: {
+    flexGrow: 1,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    // backgroundColor: 'blue',
+  },
+  h1: {
+    fontSize: text.h1,
+    lineHeight: 1,
+    fontFamily: $.fontSans,
+    fontWeight: 400,
+    textAlign: "center",
+    display: "flex",
+    gap: spacing.md,
+    whiteSpace: "nowrap",
+    flexDirection: {
+      default: "row",
+      [MEDIA_MOBILE]: "column",
+    },
+  },
+  emoji: {
+    position: "relative",
+    fontFamily: "sans-serif",
+    top: {
+      default: 0,
+      [MEDIA_MOBILE]: spacing.xxxs,
+    },
   },
   description: {
-    color: { default: "red", [MEDIA_MOBILE]: "blue" },
     display: "inherit",
     justifyContent: "inherit",
     alignItems: "inherit",
-    fontSize: {
-      default: "0.85rem",
-      [MEDIA_MOBILE]: ".8rem",
-    },
+    fontSize: text.sm,
     maxWidth: $.maxWidth,
     width: "100%",
     zIndex: 2,
@@ -34,8 +62,8 @@ const s = stylex.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    gap: "0.5rem",
-    padding: { [MEDIA_MOBILE]: "1rem" },
+    gap: spacing.xxs,
+    padding: { [MEDIA_MOBILE]: spacing.sm },
   },
   descP: {
     display: { [MEDIA_MOBILE]: "flex" },
@@ -47,9 +75,14 @@ const s = stylex.create({
     alignItems: { [MEDIA_MOBILE]: "center" },
     width: { [MEDIA_MOBILE]: "100%" },
     margin: 0,
-    padding: {
-      default: "1rem",
-      [MEDIA_MOBILE]: "2rem 1rem 1.4rem",
+    paddingInline: spacing.sm,
+    paddingTop: {
+      default: spacing.sm,
+      [MEDIA_MOBILE]: spacing.lg,
+    },
+    paddingBottom: {
+      default: spacing.sm,
+      [MEDIA_MOBILE]: spacing.md,
     },
     background: {
       default: $.calloutRGB50,
@@ -65,7 +98,7 @@ const s = stylex.create({
       [MEDIA_MOBILE]: `rgba(${$.calloutBorderR}, ${$.calloutBorderG}, ${$.calloutBorderB}, 0.25)`,
     },
     borderRadius: {
-      default: $.borderRadius,
+      default: spacing.xs,
       [MEDIA_MOBILE]: 0,
     },
     inset: { [MEDIA_MOBILE]: "0 0 auto" },
@@ -75,13 +108,13 @@ const s = stylex.create({
     fontFamily: $.fontMono,
   },
   grid: {
+    // background: 'green',
     display: "grid",
     gridTemplateColumns: {
       default: "repeat(4, minmax(25%, auto))",
       [MEDIA_MOBILE]: "1fr",
       [MEDIA_TABLET]: "repeat(2, 50%)",
     },
-    marginBottom: { [MEDIA_MOBILE]: 120 },
     width: $.maxWidth,
     maxWidth: {
       default: "100%",
@@ -100,8 +133,9 @@ export default function Home() {
           <code className={stylex(s.code)}>app/page.tsx</code>
         </p>
       </div>
-
-      <div>{JSON.stringify($.maxWidth)}</div>
+      <div className={stylex(s.hero)}>
+        <h1 className={stylex(s.h1)}>Next.js App Dir<span className={stylex(s.emoji)}>♥️</span>️StyleX</h1>
+      </div>
 
       <div className={stylex(s.grid)}>
         <Card
