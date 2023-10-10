@@ -28,14 +28,17 @@ const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
 
 const styles = stylex.create({
   container: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    flexDirection: 'column',
+    display: {
+      default: "flex",
+      [MOBILE]: "block",
+    },
+    alignItems: "center",
+    justifyContent: "flex-start",
+    flexDirection: "column",
     borderRadius: spacing.xs,
     backgroundColor: {
       default: `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0)`,
-      ':hover': `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`
+      ":hover": `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`,
     },
     borderWidth: 1,
     borderStyle: "solid",
@@ -45,6 +48,7 @@ const styles = stylex.create({
     },
     fontFamily: $.fontSans,
     padding: spacing.sm,
+    // eslint-disable-next-line @stylexjs/valid-styles
     transitionProperty: "background, border",
     transitionDuration: "200ms",
     transform: {

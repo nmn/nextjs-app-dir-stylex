@@ -4,9 +4,6 @@ const path = require("path");
 
 let count = 0;
 
-// Global list of rules:
-// const stylexRules = {};
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
@@ -16,7 +13,16 @@ const nextConfig = {
     config,
     { buildId, dev, isServer, defaultLoaders, nextRuntime, webpack }
   ) => {
-    console.log("getting webpack config", ++count, buildId, isServer);
+    console.log(
+      [
+        "GETTING WEBPACK CONFIG",
+        "======================",
+        `Count: ${++count}`,
+        `Build ID: ${buildId}`,
+        `Server: ${isServer}`,
+        `Env: ${dev ? "dev" : "prod"}`,
+      ].join("\n")
+    );
 
     config.optimization.splitChunks ||= { cacheGroups: {} };
     if (config.optimization.splitChunks?.cacheGroups?.styles) {

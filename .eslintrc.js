@@ -4,6 +4,6 @@ module.exports = {
   rules: {
     // The Eslint rule still needs work, but you can
     // enable it to test things out.
-    "@stylexjs/valid-styles": "off",
+    "@stylexjs/valid-styles": "error",
   },
 };
