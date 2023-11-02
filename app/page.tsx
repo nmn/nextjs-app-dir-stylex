@@ -2,8 +2,13 @@ import stylex from "@stylexjs/stylex";
 import Card from "./Card";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 
-const MEDIA_MOBILE = "@media (max-width: 700px)";
-const MEDIA_TABLET = "@media (min-width: 701px) and (max-width: 1120px)";
+const MEDIA_MOBILE: "@media (max-width: 700px)" = "@media (max-width: 700px)";
+const MEDIA_TABLET: "@media (min-width: 701px) and (max-width: 1120px)" =
+  "@media (min-width: 701px) and (max-width: 1120px)";
+
+const bgImage = `linear-gradient(to bottom, ${$.bgStartRGB}, ${$.calloutRGB50})`;
+const xBorderColor = `rgba(${$.calloutBorderR}, ${$.calloutBorderG}, ${$.calloutBorderB}, 0.3)`;
+const xBorderBottomColor = `rgba(${$.calloutBorderR}, ${$.calloutBorderG}, ${$.calloutBorderB}, 0.25)`;
 
 const s = stylex.create({
   main: {
@@ -82,18 +87,20 @@ const s = stylex.create({
       default: spacing.sm,
       [MEDIA_MOBILE]: spacing.md,
     },
-    background: {
-      default: $.calloutRGB50,
-      [MEDIA_MOBILE]: `linear-gradient(to bottom, ${$.bgStartRGB}, ${$.calloutRGB50})`,
+    backgroundColor: $.calloutRGB50,
+    backgroundImage: {
+      default: null,
+      [MEDIA_MOBILE]: bgImage,
     },
     borderWidth: {
       default: "1px",
       [MEDIA_MOBILE]: "0",
     },
     borderStyle: "solid",
-    borderColor: `rgba(${$.calloutBorderR}, ${$.calloutBorderG}, ${$.calloutBorderB}, 0.3)`,
+    borderColor: xBorderColor,
     borderBottomColor: {
-      [MEDIA_MOBILE]: `rgba(${$.calloutBorderR}, ${$.calloutBorderG}, ${$.calloutBorderB}, 0.25)`,
+      default: null,
+      [MEDIA_MOBILE]: xBorderBottomColor,
     },
     borderRadius: {
       default: spacing.xs,
@@ -131,7 +138,9 @@ export default function Home() {
         </p>
       </div>
       <div className={stylex(s.hero)}>
-        <h1 className={stylex(s.h1)}>Next.js App Dir<span className={stylex(s.emoji)}>♥️</span>️StyleX</h1>
+        <h1 className={stylex(s.h1)}>
+          Next.js App Dir<span className={stylex(s.emoji)}>♥️</span>️StyleX
+        </h1>
       </div>
 
       <div className={stylex(s.grid)}>

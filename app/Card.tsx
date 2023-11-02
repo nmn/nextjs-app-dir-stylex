@@ -26,6 +26,11 @@ export default function Card({ title, body, href }: Props) {
 const MOBILE = "@media (max-width: 700px)";
 const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
 
+const cardBgTransparent = `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0)`;
+const CardBgTranslucent = `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`;
+const cardBorderTransparent = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0)`;
+const cardBorderHover = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`;
+
 const styles = stylex.create({
   container: {
     display: {
@@ -37,14 +42,14 @@ const styles = stylex.create({
     flexDirection: "column",
     borderRadius: spacing.xs,
     backgroundColor: {
-      default: `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0)`,
-      ":hover": `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`,
+      default: cardBgTransparent,
+      ":hover": CardBgTranslucent,
     },
     borderWidth: 1,
     borderStyle: "solid",
     borderColor: {
-      default: `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0)`,
-      ":hover": `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`,
+      default: cardBorderTransparent,
+      ":hover": cardBorderHover,
     },
     fontFamily: $.fontSans,
     padding: spacing.sm,

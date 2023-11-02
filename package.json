@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "rm -rf .next",
+    "predev": "rimraf .next",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@stylexjs/stylex": "^0.2.0-beta.21",
+    "@stylexjs/stylex": "^0.2.0-beta.23",
     "@types/node": "20.5.0",
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
+    "bright": "^0.8.4",
     "eslint": "8.47.0 ",
     "eslint-config-next": "13.4.16",
     "next": "13.4.16",
@@ -26,9 +27,10 @@
     "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/plugin-syntax-typescript": "^7.22.5",
-    "@stylexjs/babel-plugin": "^0.2.0-beta.21",
-    "@stylexjs/eslint-plugin": "^0.2.0-beta.21",
-    "@stylexjs/nextjs-plugin": "^0.2.0-beta.21",
-    "@stylexjs/webpack-plugin": "^0.2.0-beta.21"
+    "@stylexjs/babel-plugin": "^0.2.0-beta.23",
+    "@stylexjs/eslint-plugin": "^0.2.0-beta.23",
+    "@stylexjs/nextjs-plugin": "^0.2.0-beta.23",
+    "@stylexjs/webpack-plugin": "^0.2.0-beta.23",
+    "rimraf": "^5.0.5"
   }
 }

@@ -57,9 +57,9 @@ class StylexPlugin {
     this.dev = dev;
     this.appendTo = appendTo;
     this.filename = filename;
-    if (filename.includes('stylex')) {
-      console.log('filename', filename);
-    }
+    // if (filename.includes("stylex")) {
+    //   console.log("filename", filename);
+    // }
 
     this.babelConfig = {
       plugins: [],
@@ -214,10 +214,12 @@ class StylexPlugin {
         // the CSS bundle.
         if (
           oldClassNames.size !== newClassNames.size ||
-          [...newClassNames].some((className) => !oldClassNames.has(className)) ||
-          filename.endsWith('.stylex.ts') ||
-          filename.endsWith('.stylex.tsx') ||
-          filename.endsWith('.stylex.js')
+          [...newClassNames].some(
+            (className) => !oldClassNames.has(className)
+          ) ||
+          filename.endsWith(".stylex.ts") ||
+          filename.endsWith(".stylex.tsx") ||
+          filename.endsWith(".stylex.js")
         ) {
           compilers.forEach((compiler) => {
             cssFiles.forEach((cssFile) => {

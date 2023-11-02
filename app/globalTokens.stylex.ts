@@ -27,9 +27,9 @@ const MAX_BASE_SIZE = 20;
 
 // Font sizes in `rem` units
 const MIN_FONT = {
-  xxs: Math.round((MIN_BASE_SIZE / Math.pow(MIN_SCALE, 3)) / 0.16) / 100,
-  xs: Math.round((MIN_BASE_SIZE / Math.pow(MIN_SCALE, 2)) / 0.16) / 100,
-  sm: Math.round((MIN_BASE_SIZE / MIN_SCALE) / 0.16) / 100,
+  xxs: Math.round(MIN_BASE_SIZE / Math.pow(MIN_SCALE, 3) / 0.16) / 100,
+  xs: Math.round(MIN_BASE_SIZE / Math.pow(MIN_SCALE, 2) / 0.16) / 100,
+  sm: Math.round(MIN_BASE_SIZE / MIN_SCALE / 0.16) / 100,
   p: Math.round(MIN_BASE_SIZE / 4) / 4,
   h5: Math.round((MIN_BASE_SIZE * MIN_SCALE) / 0.16) / 100,
   h4: Math.round((MIN_BASE_SIZE * Math.pow(MIN_SCALE, 2)) / 0.16) / 100,
@@ -39,9 +39,9 @@ const MIN_FONT = {
 };
 // Font sizes in `rem` units
 const MAX_FONT = {
-  xxs: Math.round((MAX_BASE_SIZE / Math.pow(MAX_SCALE, 3)) / 0.16) / 100,
-  xs: Math.round((MAX_BASE_SIZE / Math.pow(MAX_SCALE, 2)) / 0.16) / 100,
-  sm: Math.round((MAX_BASE_SIZE / MAX_SCALE) / 0.16) / 100,
+  xxs: Math.round(MAX_BASE_SIZE / Math.pow(MAX_SCALE, 3) / 0.16) / 100,
+  xs: Math.round(MAX_BASE_SIZE / Math.pow(MAX_SCALE, 2) / 0.16) / 100,
+  sm: Math.round(MAX_BASE_SIZE / MAX_SCALE / 0.16) / 100,
   p: Math.round(MAX_BASE_SIZE / 4) / 4,
   h5: Math.round((MAX_BASE_SIZE * MAX_SCALE) / 0.16) / 100,
   h4: Math.round((MAX_BASE_SIZE * Math.pow(MAX_SCALE, 2)) / 0.16) / 100,
@@ -50,15 +50,15 @@ const MAX_FONT = {
   h1: Math.round((MAX_BASE_SIZE * Math.pow(MAX_SCALE, 5)) / 0.16) / 100,
 };
 const SLOPE = {
-  xxs: 16 * (MAX_FONT.xxs - MIN_FONT.xxs) / (MAX_WIDTH - MIN_WIDTH),
-  xs: 16 * (MAX_FONT.xs - MIN_FONT.xs) / (MAX_WIDTH - MIN_WIDTH),
-  sm: 16 * (MAX_FONT.sm - MIN_FONT.sm) / (MAX_WIDTH - MIN_WIDTH),
-  p: 16 * (MAX_FONT.p - MIN_FONT.p) / (MAX_WIDTH - MIN_WIDTH),
-  h5: 16 * (MAX_FONT.h5 - MIN_FONT.h5) / (MAX_WIDTH - MIN_WIDTH),
-  h4: 16 * (MAX_FONT.h4 - MIN_FONT.h4) / (MAX_WIDTH - MIN_WIDTH),
-  h3: 16 * (MAX_FONT.h3 - MIN_FONT.h3) / (MAX_WIDTH - MIN_WIDTH),
-  h2: 16 * (MAX_FONT.h2 - MIN_FONT.h2) / (MAX_WIDTH - MIN_WIDTH),
-  h1: 16 * (MAX_FONT.h1 - MIN_FONT.h1) / (MAX_WIDTH - MIN_WIDTH),
+  xxs: (16 * (MAX_FONT.xxs - MIN_FONT.xxs)) / (MAX_WIDTH - MIN_WIDTH),
+  xs: (16 * (MAX_FONT.xs - MIN_FONT.xs)) / (MAX_WIDTH - MIN_WIDTH),
+  sm: (16 * (MAX_FONT.sm - MIN_FONT.sm)) / (MAX_WIDTH - MIN_WIDTH),
+  p: (16 * (MAX_FONT.p - MIN_FONT.p)) / (MAX_WIDTH - MIN_WIDTH),
+  h5: (16 * (MAX_FONT.h5 - MIN_FONT.h5)) / (MAX_WIDTH - MIN_WIDTH),
+  h4: (16 * (MAX_FONT.h4 - MIN_FONT.h4)) / (MAX_WIDTH - MIN_WIDTH),
+  h3: (16 * (MAX_FONT.h3 - MIN_FONT.h3)) / (MAX_WIDTH - MIN_WIDTH),
+  h2: (16 * (MAX_FONT.h2 - MIN_FONT.h2)) / (MAX_WIDTH - MIN_WIDTH),
+  h1: (16 * (MAX_FONT.h1 - MIN_FONT.h1)) / (MAX_WIDTH - MIN_WIDTH),
 };
 const INTERCEPT = {
   xxs: Math.round(100 * (MIN_FONT.xxs - SLOPE.xxs * (MIN_WIDTH / 16))) / 100,
@@ -72,18 +72,35 @@ const INTERCEPT = {
   h1: Math.round(100 * (MIN_FONT.h1 - SLOPE.h1 * (MIN_WIDTH / 16))) / 100,
 };
 
-export const text = stylex.unstable_createVars({
-  xxs: `clamp(${Math.min(MIN_FONT.xxs)}rem, calc(${INTERCEPT.xxs}rem + ${Math.round(10000 * SLOPE.xxs) / 100}vw), ${Math.max(MAX_FONT.xxs)}rem)`,
-  xs: `clamp(${Math.min(MIN_FONT.xs)}rem, calc(${INTERCEPT.xs}rem + ${Math.round(10000 * SLOPE.xs) / 100}vw), ${Math.max(MAX_FONT.xs)}rem)`,
-  sm: `clamp(${Math.min(MIN_FONT.sm)}rem, calc(${INTERCEPT.sm}rem + ${Math.round(10000 * SLOPE.sm) / 100}vw), ${Math.max(MAX_FONT.sm)}rem)`,
-  p: `clamp(${Math.min(MIN_FONT.p)}rem, calc(${INTERCEPT.p}rem + ${Math.round(10000 * SLOPE.p) / 100}vw), ${Math.max(MAX_FONT.p)}rem)`,
-  h5: `clamp(${Math.min(MIN_FONT.h5)}rem, calc(${INTERCEPT.h5}rem + ${Math.round(10000 * SLOPE.h5) / 100}vw), ${Math.max(MAX_FONT.h5)}rem)`,
-  h4: `clamp(${Math.min(MIN_FONT.h4)}rem, calc(${INTERCEPT.h4}rem + ${Math.round(10000 * SLOPE.h4) / 100}vw), ${Math.max(MAX_FONT.h4)}rem)`,
-  h3: `clamp(${Math.min(MIN_FONT.h3)}rem, calc(${INTERCEPT.h3}rem + ${Math.round(10000 * SLOPE.h3) / 100}vw), ${Math.max(MAX_FONT.h3)}rem)`,
-  h2: `clamp(${Math.min(MIN_FONT.h2)}rem, calc(${INTERCEPT.h2}rem + ${Math.round(10000 * SLOPE.h2) / 100}vw), ${Math.max(MAX_FONT.h2)}rem)`,
-  h1: `clamp(${Math.min(MIN_FONT.h1)}rem, calc(${INTERCEPT.h1}rem + ${Math.round(10000 * SLOPE.h1) / 100}vw), ${Math.max(MAX_FONT.h1)}rem)`,
+export const text = stylex.defineVars({
+  xxs: `clamp(${Math.min(MIN_FONT.xxs)}rem, calc(${INTERCEPT.xxs}rem + ${
+    Math.round(10000 * SLOPE.xxs) / 100
+  }vw), ${Math.max(MAX_FONT.xxs)}rem)`,
+  xs: `clamp(${Math.min(MIN_FONT.xs)}rem, calc(${INTERCEPT.xs}rem + ${
+    Math.round(10000 * SLOPE.xs) / 100
+  }vw), ${Math.max(MAX_FONT.xs)}rem)`,
+  sm: `clamp(${Math.min(MIN_FONT.sm)}rem, calc(${INTERCEPT.sm}rem + ${
+    Math.round(10000 * SLOPE.sm) / 100
+  }vw), ${Math.max(MAX_FONT.sm)}rem)`,
+  p: `clamp(${Math.min(MIN_FONT.p)}rem, calc(${INTERCEPT.p}rem + ${
+    Math.round(10000 * SLOPE.p) / 100
+  }vw), ${Math.max(MAX_FONT.p)}rem)`,
+  h5: `clamp(${Math.min(MIN_FONT.h5)}rem, calc(${INTERCEPT.h5}rem + ${
+    Math.round(10000 * SLOPE.h5) / 100
+  }vw), ${Math.max(MAX_FONT.h5)}rem)`,
+  h4: `clamp(${Math.min(MIN_FONT.h4)}rem, calc(${INTERCEPT.h4}rem + ${
+    Math.round(10000 * SLOPE.h4) / 100
+  }vw), ${Math.max(MAX_FONT.h4)}rem)`,
+  h3: `clamp(${Math.min(MIN_FONT.h3)}rem, calc(${INTERCEPT.h3}rem + ${
+    Math.round(10000 * SLOPE.h3) / 100
+  }vw), ${Math.max(MAX_FONT.h3)}rem)`,
+  h2: `clamp(${Math.min(MIN_FONT.h2)}rem, calc(${INTERCEPT.h2}rem + ${
+    Math.round(10000 * SLOPE.h2) / 100
+  }vw), ${Math.max(MAX_FONT.h2)}rem)`,
+  h1: `clamp(${Math.min(MIN_FONT.h1)}rem, calc(${INTERCEPT.h1}rem + ${
+    Math.round(10000 * SLOPE.h1) / 100
+  }vw), ${Math.max(MAX_FONT.h1)}rem)`,
 });
-
 
 /**
  * o--o o    o   o o-O-o o-o        o-o  o--o    O    o-o o--o
@@ -174,26 +191,45 @@ const INTERCEPT_SPACE = {
   xxxl: Math.round(4 * (MIN_SPACE.xxxl - SLOPE_SPACE.xxxl * MIN_WIDTH)) / 4,
   xxxxl: Math.round(4 * (MIN_SPACE.xxxxl - SLOPE_SPACE.xxxxl * MIN_WIDTH)) / 4,
 };
-export const spacing = stylex.unstable_createVars({
-  xxxs: `clamp(${MIN_SPACE.xxxs}px, calc(${INTERCEPT_SPACE.xxxs}px - ${Math.round(10000 * SLOPE_SPACE.xxxs) / 100}vw), ${MAX_SPACE.xxxs}px)`,
-  xxs: `clamp(${MIN_SPACE.xxs}px, calc(${INTERCEPT_SPACE.xxs}px - ${Math.round(10000 * SLOPE_SPACE.xxs) / 100}vw), ${MAX_SPACE.xxs}px)`,
-  xs: `clamp(${MIN_SPACE.xs}px, calc(${INTERCEPT_SPACE.xs}px - ${Math.round(10000 * SLOPE_SPACE.xs) / 100}vw), ${MAX_SPACE.xs}px)`,
-  sm: `clamp(${MIN_SPACE.sm}px, calc(${INTERCEPT_SPACE.sm}px - ${Math.round(10000 * SLOPE_SPACE.sm) / 100}vw), ${MAX_SPACE.sm}px)`,
-  md: `clamp(${MIN_SPACE.md}px, calc(${INTERCEPT_SPACE.md}px - ${Math.round(10000 * SLOPE_SPACE.md) / 100}vw), ${MAX_SPACE.md}px)`,
-  lg: `clamp(${MIN_SPACE.lg}px, calc(${INTERCEPT_SPACE.lg}px - ${Math.round(10000 * SLOPE_SPACE.lg) / 100}vw), ${MAX_SPACE.lg}px)`,
-  xl: `clamp(${MIN_SPACE.xl}px, calc(${INTERCEPT_SPACE.xl}px - ${Math.round(10000 * SLOPE_SPACE.xl) / 100}vw), ${MAX_SPACE.xl}px)`,
-  xxl: `clamp(${MIN_SPACE.xxl}px, calc(${INTERCEPT_SPACE.xxl}px - ${Math.round(10000 * SLOPE_SPACE.xxl) / 100}vw), ${MAX_SPACE.xxl}px)`,
-  xxxl: `clamp(${MIN_SPACE.xxxl}px, calc(${INTERCEPT_SPACE.xxxl}px - ${Math.round(10000 * SLOPE_SPACE.xxxl) / 100}vw), ${MAX_SPACE.xxxl}px)`,
-  xxxxl: `clamp(${MIN_SPACE.xxxxl}px, calc(${INTERCEPT_SPACE.xxxxl}px - ${Math.round(10000 * SLOPE_SPACE.xxxxl) / 100}vw), ${MAX_SPACE.xxxxl}px)`,
+export const spacing = stylex.defineVars({
+  xxxs: `clamp(${MIN_SPACE.xxxs}px, calc(${INTERCEPT_SPACE.xxxs}px - ${
+    Math.round(10000 * SLOPE_SPACE.xxxs) / 100
+  }vw), ${MAX_SPACE.xxxs}px)`,
+  xxs: `clamp(${MIN_SPACE.xxs}px, calc(${INTERCEPT_SPACE.xxs}px - ${
+    Math.round(10000 * SLOPE_SPACE.xxs) / 100
+  }vw), ${MAX_SPACE.xxs}px)`,
+  xs: `clamp(${MIN_SPACE.xs}px, calc(${INTERCEPT_SPACE.xs}px - ${
+    Math.round(10000 * SLOPE_SPACE.xs) / 100
+  }vw), ${MAX_SPACE.xs}px)`,
+  sm: `clamp(${MIN_SPACE.sm}px, calc(${INTERCEPT_SPACE.sm}px - ${
+    Math.round(10000 * SLOPE_SPACE.sm) / 100
+  }vw), ${MAX_SPACE.sm}px)`,
+  md: `clamp(${MIN_SPACE.md}px, calc(${INTERCEPT_SPACE.md}px - ${
+    Math.round(10000 * SLOPE_SPACE.md) / 100
+  }vw), ${MAX_SPACE.md}px)`,
+  lg: `clamp(${MIN_SPACE.lg}px, calc(${INTERCEPT_SPACE.lg}px - ${
+    Math.round(10000 * SLOPE_SPACE.lg) / 100
+  }vw), ${MAX_SPACE.lg}px)`,
+  xl: `clamp(${MIN_SPACE.xl}px, calc(${INTERCEPT_SPACE.xl}px - ${
+    Math.round(10000 * SLOPE_SPACE.xl) / 100
+  }vw), ${MAX_SPACE.xl}px)`,
+  xxl: `clamp(${MIN_SPACE.xxl}px, calc(${INTERCEPT_SPACE.xxl}px - ${
+    Math.round(10000 * SLOPE_SPACE.xxl) / 100
+  }vw), ${MAX_SPACE.xxl}px)`,
+  xxxl: `clamp(${MIN_SPACE.xxxl}px, calc(${INTERCEPT_SPACE.xxxl}px - ${
+    Math.round(10000 * SLOPE_SPACE.xxxl) / 100
+  }vw), ${MAX_SPACE.xxxl}px)`,
+  xxxxl: `clamp(${MIN_SPACE.xxxxl}px, calc(${INTERCEPT_SPACE.xxxxl}px - ${
+    Math.round(10000 * SLOPE_SPACE.xxxxl) / 100
+  }vw), ${MAX_SPACE.xxxxl}px)`,
 });
-
 
 /**
  * Color Tokens
  */
 const DARK_MODE = "@media (prefers-color-scheme: dark)";
 
-export const globalTokens = stylex.unstable_createVars({
+export const globalTokens = stylex.defineVars({
   maxWidth: `${MAX_WIDTH}px`,
   fontMono:
     'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
