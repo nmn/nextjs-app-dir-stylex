@@ -12,19 +12,13 @@
   "dependencies": {
     "@stylexjs/stylex": "^0.2.0-beta.25",
     "@stylexjs/open-props": "^0.2.0-beta.25",
-    "@types/node": "20.5.0",
-    "@types/react": "18.2.20",
-    "@types/react-dom": "18.2.7",
     "bright": "^0.8.4",
-    "eslint": "8.47.0 ",
-    "eslint-config-next": "13.4.16",
-    "next": "13.4.16",
+    "next": "14.0.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "typescript": "5.1.6"
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/plugin-syntax-typescript": "^7.22.5",
@@ -32,6 +26,12 @@
     "@stylexjs/eslint-plugin": "^0.2.0-beta.25",
     "@stylexjs/nextjs-plugin": "^0.2.0-beta.25",
     "@stylexjs/webpack-plugin": "^0.2.0-beta.25",
-    "rimraf": "^5.0.5"
+    "@types/node": "20.8.10",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "eslint": "8.52.0",
+    "eslint-config-next": "14.0.1",
+    "rimraf": "^5.0.5",
+    "typescript": "5.2.2"
   }
 }
