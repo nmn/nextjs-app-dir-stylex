@@ -128,6 +128,8 @@ const s = stylex.create({
   },
 });
 
+const HOMEPAGE = "http://stylex-docusaurus.vercel.app";
+
 export default function Home() {
   return (
     <main className={stylex(s.main)}>
@@ -145,24 +147,24 @@ export default function Home() {
 
       <div className={stylex(s.grid)}>
         <Card
-          href="https://beta.nextjs.org/docs"
+          href={`${HOMEPAGE}/docs/learn/`}
           title="Docs"
-          body="Find in-depth information about Next.js features and API."
+          body="Learn how to use StyleX to build UIs"
         />
         <Card
-          href="https://nextjs.org/learn"
-          title="Learn"
-          body="Learn about Next.js in an interactive course with quizzes!"
+          href={`${HOMEPAGE}/docs/api/`}
+          title="API"
+          body="Browse through the StyleX API reference"
         />
         <Card
-          href="https://vercel.com/templates"
+          href={`${HOMEPAGE}/playground/`}
+          title="Playground"
+          body="Playing with StyleX and look at look at the compile outputs"
+        />
+        <Card
+          href="https://github.com/nmn/nextjs-app-dir-stylex"
           title="Templates"
-          body="Explore the Next.js 13 playground."
-        />
-        <Card
-          href="https://vercel.com/new"
-          title="Deploy"
-          body="Instantly deploy your Next.js site to a public URL with Vercel."
+          body="Get started with a NextJS+StyleX project."
         />
       </div>
     </main>

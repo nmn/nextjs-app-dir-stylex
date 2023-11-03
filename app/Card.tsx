@@ -1,5 +1,7 @@
 import stylex from "@stylexjs/stylex";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
+import "@stylexjs/open-props/lib/colors.stylex";
+import { colors } from "@stylexjs/open-props/lib/colors.stylex";
 
 type Props = Readonly<{
   title: string;
@@ -11,7 +13,7 @@ export default function Card({ title, body, href }: Props) {
   return (
     <a
       href={href}
-      className={stylex(styles.container)}
+      className={stylex(styles.link)}
       target="_blank"
       rel="noopener noreferrer"
     >
@@ -32,7 +34,7 @@ const cardBorderTransparent = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.card
 const cardBorderHover = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`;
 
 const styles = stylex.create({
-  container: {
+  link: {
     display: {
       default: "flex",
       [MOBILE]: "block",
@@ -51,18 +53,20 @@ const styles = stylex.create({
       default: cardBorderTransparent,
       ":hover": cardBorderHover,
     },
+    color: "inherit",
     fontFamily: $.fontSans,
     padding: spacing.sm,
-    // eslint-disable-next-line @stylexjs/valid-styles
-    transitionProperty: "background, border",
-    transitionDuration: "200ms",
+    transitionProperty: "background-color, border-color",
+    transitionDuration: "400ms",
     transform: {
       default: "translateX(0)",
       ":hover span": "translateX(4px)",
     },
     textAlign: "center",
+    textDecoration: "none",
   },
   h2: {
+    color: colors.blue3,
     fontSize: text.h4,
     fontWeight: 600,
     marginBottom: {

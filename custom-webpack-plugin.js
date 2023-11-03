@@ -183,7 +183,6 @@ class StylexPlugin {
         originalSource.includes(importName)
       )
     ) {
-      // console.log('transformCode', originalSource)
       const { code, map, metadata } = await babel.transformAsync(
         originalSource,
         {
