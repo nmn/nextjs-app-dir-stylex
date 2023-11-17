@@ -4,10 +4,7 @@ module.exports = {
     [
       "@stylexjs/babel-plugin",
       {
-        // This should be process.env.NODE_ENV === "development"
-        // But there is a bug in StyleX that prevents it from working.
-        // Fix in beta 25.
-        dev: false,
+        dev: process.env.NODE_ENV === "development",
         stylexSheetName: "<>",
         genConditionalClasses: true,
         unstable_moduleResolution: {
