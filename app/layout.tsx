@@ -1,5 +1,4 @@
 import "./globals.css";
-import "./globalTokens.stylex";
 
 import { globalTokens as $ } from "./globalTokens.stylex";
 import * as stylex from "@stylexjs/stylex";
