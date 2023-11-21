@@ -18,14 +18,24 @@ export default function Card({ title, body, href }: Props) {
       rel="noopener noreferrer"
     >
       <h2 className={stylex(styles.h2)}>
-        {title} <span className={stylex(styles.span)}>→</span>
+        {title}{" "}
+        <span
+          {...stylex.props(
+            styles.span,
+            styles.dynamic(`rgb(0, 0, ${Math.random() * 255})`)
+          )}
+        >
+          →
+        </span>
       </h2>
       <p className={stylex(styles.p)}>{body}</p>
     </a>
   );
 }
 
-const MOBILE = "@media (max-width: 700px)";
+type TMobile = "@media (max-width: 700px)";
+
+const MOBILE: TMobile = "@media (max-width: 700px)";
 const REDUCE_MOTION = "@media (prefers-reduced-motion: reduce)";
 
 const cardBgTransparent = `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0)`;
@@ -95,4 +105,8 @@ const styles = stylex.create({
     lineHeight: 1.5,
     maxWidth: "30ch",
   },
+  dynamic: (color: string) => ({
+    // eslint-disable-next-line @stylexjs/valid-styles
+    color: color,
+  }),
 });

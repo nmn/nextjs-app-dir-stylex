@@ -1,6 +1,7 @@
 import stylex from "@stylexjs/stylex";
 import Card from "./Card";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
+import ButtonsDemo from "./components/ButtonsDemo";
 
 const MEDIA_MOBILE: "@media (max-width: 700px)" = "@media (max-width: 700px)";
 const MEDIA_TABLET: "@media (min-width: 701px) and (max-width: 1120px)" =
@@ -144,6 +145,7 @@ export default function Home() {
           Next.js App Dir<span className={stylex(s.emoji)}>♥️</span>️StyleX
         </h1>
       </div>
+      <ButtonsDemo />
 
       <div className={stylex(s.grid)}>
         <Card
