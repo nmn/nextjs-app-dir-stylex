@@ -22,6 +22,12 @@ export default function ButtonsDemo(_props: Props) {
         Red Button
       </ThemeableButton>
 
+      <div {...stylex.props(redTheme as any)}>
+        <ThemeableButton onClick={onClick}>
+          Red Button By inheritance
+        </ThemeableButton>
+      </div>
+
       <ThemeableButton
         onClick={onClick}
         style={[styles.bordered, styles.greenBorder]}
