@@ -9,8 +9,6 @@ type Props = Readonly<{
   children: React.ReactNode;
   // for Overrides
   style?: StyleXStyles;
-  // NOTE: Typescript types for theming need some work.
-  // @ts-expect-error
   theme?: Theme<typeof buttonTokens>;
 }>;
 

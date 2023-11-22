@@ -22,7 +22,7 @@ export default function ButtonsDemo(_props: Props) {
         Red Button
       </ThemeableButton>
 
-      <div {...stylex.props(redTheme as any)}>
+      <div {...stylex.props(redTheme)}>
         <ThemeableButton onClick={onClick}>
           Red Button By inheritance
         </ThemeableButton>
@@ -40,11 +40,11 @@ export default function ButtonsDemo(_props: Props) {
 }
 
 const redTheme = stylex.createTheme(buttonTokens, {
-  bgColor: "red" as any,
-  textColor: "white" as any,
-  cornerRadius: "4px" as any,
-  paddingBlock: "4px" as any,
-  paddingInline: "8px" as any,
+  bgColor: "red",
+  textColor: "white",
+  cornerRadius: "4px",
+  paddingBlock: "4px",
+  paddingInline: "8px",
 });
 
 const styles = stylex.create({
