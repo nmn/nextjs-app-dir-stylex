@@ -17,7 +17,7 @@ export default function Card({ title, body, href }: Props) {
       target="_blank"
       rel="noopener noreferrer"
     >
-      <h2 className={stylex(styles.h2)}>
+      <h2 {...stylex.props(styles.h2)}>
         {title} <span {...stylex.props(styles.span)}>→</span>
       </h2>
       <p className={stylex(styles.p)}>{body}</p>

@@ -10,12 +10,27 @@ type Props = Readonly<{
   // for Overrides
   style?: StyleXStyles;
   theme?: Theme<typeof buttonTokens>;
+  variant?: "primary" | "danger";
+  em?: boolean;
 }>;
 
-export default function Card({ onClick, children, style, theme }: Props) {
+export default function Card({
+  onClick,
+  children,
+  style,
+  theme,
+  variant,
+  em = false,
+}: Props) {
   return (
     <button
-      {...stylex.props(theme as any, styles.base, style)}
+      {...stylex.props(
+        theme,
+        styles.base,
+        em && styles.emphasise,
+        variant && variantStyles[variant],
+        style
+      )}
       onClick={onClick}
     >
       {children}
@@ -33,5 +48,18 @@ const styles = stylex.create({
     borderRadius: buttonTokens.cornerRadius,
     paddingBlock: buttonTokens.paddingBlock,
     paddingInline: buttonTokens.paddingInline,
+  },
+  emphasise: {
+    transform: "scale(1.1)",
+  },
+});
+
+const variantStyles = stylex.create({
+  danger: {
+    backgroundColor: "red",
+    color: "white",
+  },
+  primary: {
+    fontWeight: "bold",
   },
 });
