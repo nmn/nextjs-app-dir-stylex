@@ -1,4 +1,4 @@
-import stylex from "@stylexjs/stylex";
+import * as stylex from "@stylexjs/stylex";
 import Card from "./Card";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 import ButtonsDemo from "./components/ButtonsDemo";
@@ -133,21 +133,21 @@ const HOMEPAGE = "http://stylex-docusaurus.vercel.app";
 
 export default function Home() {
   return (
-    <main className={stylex(s.main)}>
-      <div className={stylex(s.description)}>
-        <p className={stylex(s.descP)}>
+    <main {...stylex.props(s.main)}>
+      <div {...stylex.props(s.description)}>
+        <p {...stylex.props(s.descP)}>
           Get started by editing&nbsp;
-          <code className={stylex(s.code)}>app/page.tsx</code>
+          <code {...stylex.props(s.code)}>app/page.tsx</code>
         </p>
       </div>
-      <div className={stylex(s.hero)}>
-        <h1 className={stylex(s.h1)}>
-          Next.js App Dir<span className={stylex(s.emoji)}>♥️</span>️StyleX
+      <div {...stylex.props(s.hero)}>
+        <h1 {...stylex.props(s.h1)}>
+          Next.js App Dir<span {...stylex.props(s.emoji)}>♥️</span>️StyleX
         </h1>
       </div>
       <ButtonsDemo />
 
-      <div className={stylex(s.grid)}>
+      <div {...stylex.props(s.grid)}>
         <Card
           href={`${HOMEPAGE}/docs/learn/`}
           title="Docs"

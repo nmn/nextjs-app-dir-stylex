@@ -1,6 +1,5 @@
-import stylex from "@stylexjs/stylex";
+import * as stylex from "@stylexjs/stylex";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
-import "@stylexjs/open-props/lib/colors.stylex";
 import { colors } from "@stylexjs/open-props/lib/colors.stylex";
 
 type Props = Readonly<{
@@ -13,14 +12,14 @@ export default function Card({ title, body, href }: Props) {
   return (
     <a
       href={href}
-      className={stylex(styles.link)}
+      {...stylex.props(styles.link)}
       target="_blank"
       rel="noopener noreferrer"
     >
       <h2 {...stylex.props(styles.h2)}>
         {title} <span {...stylex.props(styles.span)}>→</span>
       </h2>
-      <p className={stylex(styles.p)}>{body}</p>
+      <p {...stylex.props(styles.p)}>{body}</p>
     </a>
   );
 }
