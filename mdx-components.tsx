@@ -1,7 +1,7 @@
 import type { MDXComponents } from "mdx/types";
 
 import * as stylex from "@stylexjs/stylex";
-import { globalTokens as $, spacing, text } from "./app/globalTokens.stylex";
+import { globalTokens as $, text } from "./components/globalTokens.stylex";
 import { colors } from "@stylexjs/open-props/lib/colors.stylex";
 
 const MOBILE = "@media (max-width: 700px)";

@@ -5,6 +5,7 @@
   "scripts": {
     "predev": "rimraf .next",
     "dev": "next dev",
+    "prebuild": "rimraf .next",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
