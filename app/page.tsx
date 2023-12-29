@@ -2,6 +2,52 @@ import * as stylex from "@stylexjs/stylex";
 import Card from "./Card";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 import ButtonsDemo from "./components/ButtonsDemo";
+import Counter from "./components/Counter";
+
+const HOMEPAGE = "http://stylex-docusaurus.vercel.app";
+
+export default function Home() {
+  return (
+    <main {...stylex.props(s.main)}>
+      <div {...stylex.props(s.description)}>
+        <p {...stylex.props(s.descP)}>
+          Get started by editing&nbsp;
+          <code {...stylex.props(s.code)}>app/page.tsx</code>
+        </p>
+      </div>
+      <div {...stylex.props(s.hero)}>
+        <h1 {...stylex.props(s.h1)}>
+          Next.js App Dir<span {...stylex.props(s.emoji)}>♥️</span>️StyleX
+        </h1>
+        <Counter />
+      </div>
+      <ButtonsDemo />
+
+      <div {...stylex.props(s.grid)}>
+        <Card
+          href={`${HOMEPAGE}/docs/learn/`}
+          title="Docs"
+          body="Learn how to use StyleX to build UIs"
+        />
+        <Card
+          href={`${HOMEPAGE}/docs/api/`}
+          title="API"
+          body="Browse through the StyleX API reference"
+        />
+        <Card
+          href={`${HOMEPAGE}/playground/`}
+          title="Playground"
+          body="Playing with StyleX and look at look at the compile outputs"
+        />
+        <Card
+          href="https://github.com/nmn/nextjs-app-dir-stylex"
+          title="Templates"
+          body="Get started with a NextJS+StyleX project."
+        />
+      </div>
+    </main>
+  );
+}
 
 const MEDIA_MOBILE: "@media (max-width: 700px)" = "@media (max-width: 700px)";
 const MEDIA_TABLET: "@media (min-width: 701px) and (max-width: 1120px)" =
@@ -29,6 +75,8 @@ const s = stylex.create({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    flexDirection: "column",
+    gap: spacing.xl,
   },
   h1: {
     fontSize: text.h1,
@@ -128,47 +176,3 @@ const s = stylex.create({
     textAlign: { [MEDIA_MOBILE]: "center" },
   },
 });
-
-const HOMEPAGE = "http://stylex-docusaurus.vercel.app";
-
-export default function Home() {
-  return (
-    <main {...stylex.props(s.main)}>
-      <div {...stylex.props(s.description)}>
-        <p {...stylex.props(s.descP)}>
-          Get started by editing&nbsp;
-          <code {...stylex.props(s.code)}>app/page.tsx</code>
-        </p>
-      </div>
-      <div {...stylex.props(s.hero)}>
-        <h1 {...stylex.props(s.h1)}>
-          Next.js App Dir<span {...stylex.props(s.emoji)}>♥️</span>️StyleX
-        </h1>
-      </div>
-      <ButtonsDemo />
-
-      <div {...stylex.props(s.grid)}>
-        <Card
-          href={`${HOMEPAGE}/docs/learn/`}
-          title="Docs"
-          body="Learn how to use StyleX to build UIs"
-        />
-        <Card
-          href={`${HOMEPAGE}/docs/api/`}
-          title="API"
-          body="Browse through the StyleX API reference"
-        />
-        <Card
-          href={`${HOMEPAGE}/playground/`}
-          title="Playground"
-          body="Playing with StyleX and look at look at the compile outputs"
-        />
-        <Card
-          href="https://github.com/nmn/nextjs-app-dir-stylex"
-          title="Templates"
-          body="Get started with a NextJS+StyleX project."
-        />
-      </div>
-    </main>
-  );
-}
