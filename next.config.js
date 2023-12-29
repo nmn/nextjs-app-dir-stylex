@@ -9,5 +9,6 @@ const nextConfig = {
 };
 
 module.exports = stylexPlugin({
+  dev: true,
   rootDir: __dirname,
 })(withMDX(nextConfig));
