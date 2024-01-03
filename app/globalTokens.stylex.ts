@@ -72,34 +72,17 @@ const INTERCEPT = {
   h1: Math.round(100 * (MIN_FONT.h1 - SLOPE.h1 * (MIN_WIDTH / 16))) / 100,
 };
 
+// prettier-ignore
 export const text = stylex.defineVars({
-  xxs: `clamp(${Math.min(MIN_FONT.xxs)}rem, calc(${INTERCEPT.xxs}rem + ${
-    Math.round(10000 * SLOPE.xxs) / 100
-  }vw), ${Math.max(MAX_FONT.xxs)}rem)`,
-  xs: `clamp(${Math.min(MIN_FONT.xs)}rem, calc(${INTERCEPT.xs}rem + ${
-    Math.round(10000 * SLOPE.xs) / 100
-  }vw), ${Math.max(MAX_FONT.xs)}rem)`,
-  sm: `clamp(${Math.min(MIN_FONT.sm)}rem, calc(${INTERCEPT.sm}rem + ${
-    Math.round(10000 * SLOPE.sm) / 100
-  }vw), ${Math.max(MAX_FONT.sm)}rem)`,
-  p: `clamp(${Math.min(MIN_FONT.p)}rem, calc(${INTERCEPT.p}rem + ${
-    Math.round(10000 * SLOPE.p) / 100
-  }vw), ${Math.max(MAX_FONT.p)}rem)`,
-  h5: `clamp(${Math.min(MIN_FONT.h5)}rem, calc(${INTERCEPT.h5}rem + ${
-    Math.round(10000 * SLOPE.h5) / 100
-  }vw), ${Math.max(MAX_FONT.h5)}rem)`,
-  h4: `clamp(${Math.min(MIN_FONT.h4)}rem, calc(${INTERCEPT.h4}rem + ${
-    Math.round(10000 * SLOPE.h4) / 100
-  }vw), ${Math.max(MAX_FONT.h4)}rem)`,
-  h3: `clamp(${Math.min(MIN_FONT.h3)}rem, calc(${INTERCEPT.h3}rem + ${
-    Math.round(10000 * SLOPE.h3) / 100
-  }vw), ${Math.max(MAX_FONT.h3)}rem)`,
-  h2: `clamp(${Math.min(MIN_FONT.h2)}rem, calc(${INTERCEPT.h2}rem + ${
-    Math.round(10000 * SLOPE.h2) / 100
-  }vw), ${Math.max(MAX_FONT.h2)}rem)`,
-  h1: `clamp(${Math.min(MIN_FONT.h1)}rem, calc(${INTERCEPT.h1}rem + ${
-    Math.round(10000 * SLOPE.h1) / 100
-  }vw), ${Math.max(MAX_FONT.h1)}rem)`,
+  xxs: `clamp(${ Math.min(MIN_FONT.xxs) }rem, calc(${ INTERCEPT.xxs }rem + ${ Math.round(10000 * SLOPE.xxs) / 100 }vw), ${ Math.max(MAX_FONT.xxs) }rem)`,
+  xs:  `clamp(${ Math.min(MIN_FONT.xs ) }rem, calc(${ INTERCEPT.xs  }rem + ${ Math.round(10000 * SLOPE.xs ) / 100 }vw), ${ Math.max(MAX_FONT.xs ) }rem)`,
+  sm:  `clamp(${ Math.min(MIN_FONT.sm ) }rem, calc(${ INTERCEPT.sm  }rem + ${ Math.round(10000 * SLOPE.sm ) / 100 }vw), ${ Math.max(MAX_FONT.sm ) }rem)`,
+  p:   `clamp(${ Math.min(MIN_FONT.p  ) }rem, calc(${ INTERCEPT.p   }rem + ${ Math.round(10000 * SLOPE.p  ) / 100 }vw), ${ Math.max(MAX_FONT.p  ) }rem)`,
+  h5:  `clamp(${ Math.min(MIN_FONT.h5 ) }rem, calc(${ INTERCEPT.h5  }rem + ${ Math.round(10000 * SLOPE.h5 ) / 100 }vw), ${ Math.max(MAX_FONT.h5 ) }rem)`,
+  h4:  `clamp(${ Math.min(MIN_FONT.h4 ) }rem, calc(${ INTERCEPT.h4  }rem + ${ Math.round(10000 * SLOPE.h4 ) / 100 }vw), ${ Math.max(MAX_FONT.h4 ) }rem)`,
+  h3:  `clamp(${ Math.min(MIN_FONT.h3 ) }rem, calc(${ INTERCEPT.h3  }rem + ${ Math.round(10000 * SLOPE.h3 ) / 100 }vw), ${ Math.max(MAX_FONT.h3 ) }rem)`,
+  h2:  `clamp(${ Math.min(MIN_FONT.h2 ) }rem, calc(${ INTERCEPT.h2  }rem + ${ Math.round(10000 * SLOPE.h2 ) / 100 }vw), ${ Math.max(MAX_FONT.h2 ) }rem)`,
+  h1:  `clamp(${ Math.min(MIN_FONT.h1 ) }rem, calc(${ INTERCEPT.h1  }rem + ${ Math.round(10000 * SLOPE.h1 ) / 100 }vw), ${ Math.max(MAX_FONT.h1 ) }rem)`,
 });
 
 /**
@@ -191,37 +174,19 @@ const INTERCEPT_SPACE = {
   xxxl: Math.round(4 * (MIN_SPACE.xxxl - SLOPE_SPACE.xxxl * MIN_WIDTH)) / 4,
   xxxxl: Math.round(4 * (MIN_SPACE.xxxxl - SLOPE_SPACE.xxxxl * MIN_WIDTH)) / 4,
 };
+
+// prettier-ignore
 export const spacing = stylex.defineVars({
-  xxxs: `clamp(${MIN_SPACE.xxxs}px, calc(${INTERCEPT_SPACE.xxxs}px - ${
-    Math.round(10000 * SLOPE_SPACE.xxxs) / 100
-  }vw), ${MAX_SPACE.xxxs}px)`,
-  xxs: `clamp(${MIN_SPACE.xxs}px, calc(${INTERCEPT_SPACE.xxs}px - ${
-    Math.round(10000 * SLOPE_SPACE.xxs) / 100
-  }vw), ${MAX_SPACE.xxs}px)`,
-  xs: `clamp(${MIN_SPACE.xs}px, calc(${INTERCEPT_SPACE.xs}px - ${
-    Math.round(10000 * SLOPE_SPACE.xs) / 100
-  }vw), ${MAX_SPACE.xs}px)`,
-  sm: `clamp(${MIN_SPACE.sm}px, calc(${INTERCEPT_SPACE.sm}px - ${
-    Math.round(10000 * SLOPE_SPACE.sm) / 100
-  }vw), ${MAX_SPACE.sm}px)`,
-  md: `clamp(${MIN_SPACE.md}px, calc(${INTERCEPT_SPACE.md}px - ${
-    Math.round(10000 * SLOPE_SPACE.md) / 100
-  }vw), ${MAX_SPACE.md}px)`,
-  lg: `clamp(${MIN_SPACE.lg}px, calc(${INTERCEPT_SPACE.lg}px - ${
-    Math.round(10000 * SLOPE_SPACE.lg) / 100
-  }vw), ${MAX_SPACE.lg}px)`,
-  xl: `clamp(${MIN_SPACE.xl}px, calc(${INTERCEPT_SPACE.xl}px - ${
-    Math.round(10000 * SLOPE_SPACE.xl) / 100
-  }vw), ${MAX_SPACE.xl}px)`,
-  xxl: `clamp(${MIN_SPACE.xxl}px, calc(${INTERCEPT_SPACE.xxl}px - ${
-    Math.round(10000 * SLOPE_SPACE.xxl) / 100
-  }vw), ${MAX_SPACE.xxl}px)`,
-  xxxl: `clamp(${MIN_SPACE.xxxl}px, calc(${INTERCEPT_SPACE.xxxl}px - ${
-    Math.round(10000 * SLOPE_SPACE.xxxl) / 100
-  }vw), ${MAX_SPACE.xxxl}px)`,
-  xxxxl: `clamp(${MIN_SPACE.xxxxl}px, calc(${INTERCEPT_SPACE.xxxxl}px - ${
-    Math.round(10000 * SLOPE_SPACE.xxxxl) / 100
-  }vw), ${MAX_SPACE.xxxxl}px)`,
+  xxxs:  `clamp(${MIN_SPACE.xxxs  }px, calc(${INTERCEPT_SPACE.xxxs  }px + ${ Math.round(10000 * SLOPE_SPACE.xxxs  ) / 100 }vw), ${MAX_SPACE.xxxs  }px)`,
+  xxs:   `clamp(${MIN_SPACE.xxs   }px, calc(${INTERCEPT_SPACE.xxs   }px + ${ Math.round(10000 * SLOPE_SPACE.xxs   ) / 100 }vw), ${MAX_SPACE.xxs   }px)`,
+  xs:    `clamp(${MIN_SPACE.xs    }px, calc(${INTERCEPT_SPACE.xs    }px + ${ Math.round(10000 * SLOPE_SPACE.xs    ) / 100 }vw), ${MAX_SPACE.xs    }px)`,
+  sm:    `clamp(${MIN_SPACE.sm    }px, calc(${INTERCEPT_SPACE.sm    }px + ${ Math.round(10000 * SLOPE_SPACE.sm    ) / 100 }vw), ${MAX_SPACE.sm    }px)`,
+  md:    `clamp(${MIN_SPACE.md    }px, calc(${INTERCEPT_SPACE.md    }px + ${ Math.round(10000 * SLOPE_SPACE.md    ) / 100 }vw), ${MAX_SPACE.md    }px)`,
+  lg:    `clamp(${MIN_SPACE.lg    }px, calc(${INTERCEPT_SPACE.lg    }px + ${ Math.round(10000 * SLOPE_SPACE.lg    ) / 100 }vw), ${MAX_SPACE.lg    }px)`,
+  xl:    `clamp(${MIN_SPACE.xl    }px, calc(${INTERCEPT_SPACE.xl    }px + ${ Math.round(10000 * SLOPE_SPACE.xl    ) / 100 }vw), ${MAX_SPACE.xl    }px)`,
+  xxl:   `clamp(${MIN_SPACE.xxl   }px, calc(${INTERCEPT_SPACE.xxl   }px + ${ Math.round(10000 * SLOPE_SPACE.xxl   ) / 100 }vw), ${MAX_SPACE.xxl   }px)`,
+  xxxl:  `clamp(${MIN_SPACE.xxxl  }px, calc(${INTERCEPT_SPACE.xxxl  }px + ${ Math.round(10000 * SLOPE_SPACE.xxxl  ) / 100 }vw), ${MAX_SPACE.xxxl  }px)`,
+  xxxxl: `clamp(${MIN_SPACE.xxxxl }px, calc(${INTERCEPT_SPACE.xxxxl }px + ${ Math.round(10000 * SLOPE_SPACE.xxxxl ) / 100 }vw), ${MAX_SPACE.xxxxl }px)`,
 });
 
 /**
@@ -231,10 +196,35 @@ const DARK_MODE = "@media (prefers-color-scheme: dark)";
 
 export const globalTokens = stylex.defineVars({
   maxWidth: `${MAX_WIDTH}px`,
-  fontMono:
-    'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace',
-  fontSans:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"',
+  fontMono: [
+    "ui-monospace",
+    "Menlo",
+    "Monaco",
+    '"Cascadia Mono"',
+    '"Segoe UI Mono"',
+    '"Roboto Mono"',
+    '"Oxygen Mono"',
+    '"Ubuntu Monospace"',
+    '"Source Code Pro"',
+    '"Fira Mono"',
+    '"Droid Sans Mono"',
+    '"Courier New"',
+    "monospace",
+  ].join(", "),
+  fontSans: [
+    "--apple-system",
+    "BlinkMacSystemFont",
+    '"Segoe UI"',
+    "Roboto",
+    '"Helvetica Neue"',
+    "Arial",
+    '"Noto Sans"',
+    "sans-serif",
+    '"Apple Color Emoji"',
+    '"Segoe UI Emoji"',
+    '"Segoe UI Symbol"',
+    '"Noto Color Emoji"',
+  ].join(", "),
 
   foregroundR: { default: "0", [DARK_MODE]: "255" },
   foregroundG: { default: "0", [DARK_MODE]: "255" },

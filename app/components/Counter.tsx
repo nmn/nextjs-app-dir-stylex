@@ -12,6 +12,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { spacing, text, globalTokens as $ } from "../globalTokens.stylex";
 import { colors } from "@stylexjs/open-props/lib/colors.stylex";
+import { shadows } from "@stylexjs/open-props/lib/shadows.stylex";
 import { useState } from "react";
 
 export default function Counter() {
@@ -58,6 +59,7 @@ const styles = stylex.create({
     padding: spacing.xxxs,
     fontFamily: $.fontSans,
     gap: spacing.xs,
+    boxShadow: shadows.shadow6,
   },
   button: {
     display: "flex",

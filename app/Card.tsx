@@ -1,6 +1,7 @@
 import * as stylex from "@stylexjs/stylex";
 import { globalTokens as $, spacing, text } from "./globalTokens.stylex";
 import { colors } from "@stylexjs/open-props/lib/colors.stylex";
+import { tokens } from "./CardTokens.stylex";
 
 type Props = Readonly<{
   title: string;
@@ -34,9 +35,6 @@ const CardBgTranslucent = `rgba(${$.cardR}, ${$.cardG}, ${$.cardB}, 0.1)`;
 const cardBorderTransparent = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0)`;
 const cardBorderHover = `rgba(${$.cardBorderR}, ${$.cardBorderG}, ${$.cardBorderB}, 0.1)`;
 
-// temporrary workaround for using hover on anscestors
-const LOCAL_VAR = "--span-t";
-
 const styles = stylex.create({
   link: {
     display: {
@@ -62,9 +60,10 @@ const styles = stylex.create({
     padding: spacing.sm,
     transitionProperty: "background-color, border-color",
     transitionDuration: "400ms",
-    // eslint-disable-next-line @stylexjs/valid-styles
-    [LOCAL_VAR]: {
+    [tokens.arrowTransform]: {
+      // eslint-disable-next-line @stylexjs/valid-styles
       default: "translateX(0)",
+      // eslint-disable-next-line @stylexjs/valid-styles
       ":hover": "translateX(4px)",
     },
     textAlign: "center",
@@ -86,7 +85,7 @@ const styles = stylex.create({
       default: "200ms",
       [REDUCE_MOTION]: "0s",
     },
-    transform: `var(${LOCAL_VAR})`,
+    transform: tokens.arrowTransform,
   },
   p: {
     margin: 0,
